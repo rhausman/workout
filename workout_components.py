@@ -1,4 +1,5 @@
 import sys
+import os
 import pprint
 import pandas as pd
 
@@ -27,9 +28,9 @@ def generate_workout(categories, components):
 		temp_dict[category] = pd.Series(components[category])
 	df = pd.DataFrame(temp_dict)
 	print(df)
-	#pprint.pprint(temp_dict, depth = 3)
+	#pprint.print(temp_dict, depth = 3)
 
-with open('/Users/richardhausman/Desktop/Coding/workout/last_workout.txt','r') as f:
+with open('/Users/richardhausman/Documents/workout/last_workout.txt','r') as f:
 	workout_type = f.read()
 	f.close()
 	if workout_type =='A':
@@ -44,12 +45,12 @@ print('Workout type: ', workout_type,
 	'\n--------------------------')
 if workout_type == 'A':
 	generate_workout(fullbody_a,components)
-	with open('/Users/richardhausman/Desktop/Coding/workout/last_workout.txt','w') as f:
+	with open('/Users/richardhausman/Documents/workout/last_workout.txt','w') as f:
 		f.write(workout_type)
 		f.close()
 elif workout_type == 'B':
 	generate_workout(fullbody_b, components)
-	with open('/Users/richardhausman/Desktop/Coding/workout/last_workout.txt','w') as f:
+	with open('/Users/richardhausman/Documents/workout/last_workout.txt','w') as f:
 		f.write(workout_type)
 		f.close()
 else:
